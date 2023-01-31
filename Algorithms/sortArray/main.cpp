@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -83,11 +84,11 @@ void sortArray(string *arr, int arrSize)
             int depth = 0; // character position to compare
             if (depth < arr[i].length() && depth < arr[i + 1].length())
             {
-                while (int(arr[i][depth]) == int(arr[i + 1][depth]))
+                while (int(tolower(arr[i][depth])) == int(tolower(arr[i + 1][depth])))
                 {
                     depth++;
                 }
-                if (int(arr[i][depth]) > int(arr[i + 1][depth]))
+                if (int(tolower(arr[i][depth])) > int(tolower(arr[i + 1][depth])))
                 {
                     string aux = arr[i];
                     arr[i] = arr[i + 1];
@@ -114,8 +115,8 @@ int main(int argc, char const *argv[])
     string *list = new string[size];
     list[0] = "Mariana";
     list[1] = "Maria";
-    list[2] = "Manuel";
-    list[3] = "Miguel";
+    list[2] = "manuel";
+    list[3] = "miguel";
     list[4] = "Bernardo";
     list[5] = "Daniel";
     list[6] = "Pedro";
